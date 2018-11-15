@@ -1,0 +1,490 @@
+/* FONT */
+@font-face {
+	font-family: 'fontello';
+	src: 	url('font/fontello.eot');
+	src: 	url('font/fontello.eot') format('embedded-opentype'),
+			url('font/fontello.woff2') format('woff2'),
+			url('font/fontello.woff') format('woff'),
+			url('font/fontello.ttf') format('truetype'),
+			url('font/fontello.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*=== START GENERAL HTML =================================================== */
+html {
+	font-family: sans-serif;
+	font-size: 11pt;
+	height: 100%;
+	width: 100%;
+}
+body {
+	margin: 0;
+	height: 100%;
+}
+p {
+	line-height: 1.5em;
+	margin: 0.3em 0;
+}
+h2, h3, h4, h5, h6 {
+    color: #764d82;
+}
+h2 {
+    font-size: 1.4em;
+}
+h3 {
+    font-size: 1.2em;
+}
+table {
+	margin: 0.3em auto;
+}
+table > caption {
+	color: gray;
+	font-style: italic;
+}
+table p {
+	margin: 0.1em 0;
+}
+p img {
+	vertical-align: middle;
+	display: inline-block;
+	margin: 1px 0;
+}
+a {
+	color: #764d82;
+}
+a:hover {
+	opacity: 0.8;
+}
+button {
+	cursor: pointer;
+	background-color: #2d003a;
+	border: medium none;
+	color: #ffffff;
+}
+button:hover{
+	background-color: #ec6607;
+}
+.hidden {
+	display: none !important;
+}
+/*=== END GENERAL HTML ===================================================== */
+
+/*=== START TEMPLATE ======================================================= */
+body {
+	background-color: #EEE;
+}
+
+div.root {
+	margin: 0 auto;
+	max-width: 1280px;
+	background-color: #FFF;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+#header {
+	background: #764d82;
+	color: #FFF;
+	position: relative;
+	flex: 0 0 auto;
+}
+#header h1 {
+	margin: 0 0 0 22px;
+	text-transform: uppercase;
+	line-height: 50px;
+	font-size:1.5em;
+}
+#header .description {
+	display: block;
+	margin-bottom: 10px;
+	margin-left: 22px;
+}
+#main {
+	position: relative;
+	flex: 1 1 auto;
+	padding: 1em;
+}
+#footer {
+	flex: 0 0 auto;
+	background-color: #764d82;
+	padding: 1em;
+	line-height: 1em;
+	color: white;
+	font-size: 0.7em;
+	text-align: right;
+}
+#footer img {
+	vertical-align: middle;
+}
+#footer a {
+	color: white;
+	text-decoration: none;
+}
+/*=== END TEMPLATE ========================================================= */
+
+
+/*=== START FOLDER ========================================================= */
+body.folder div.root {
+	max-width: 900px;
+}
+body.folder ul{
+	list-style-type:none;
+	padding: 0px;
+    overflow: hidden;
+    -moz-transition: height .4s ease-in-out;
+    -webkit-transition: height .4s ease-in-out;
+    -o-transition: height .4s ease-in-out;
+    transition: height .4s ease-in-out;
+}
+body.folder ul li {
+	margin: 0.5em 0;
+	min-height: 25px;
+    visibility: hidden;
+}
+body.folder ul li.parent {
+	padding-left: 0;
+}
+body.folder ul li a{
+	text-decoration:none;
+}
+
+body.folder li.child {
+    background-color: #e9e9e9;
+}
+body.folder li.child > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: #764d82;
+    color: #fff;
+}
+body.folder li.child > div a.lnkResource {
+    color: #ffffff;
+	padding:0.5em 1em;
+}
+body.folder li.child > div a.lnkResource:hover {
+    color: #ec6607;
+}
+body.folder li.child > div .resourceTools {
+    padding: 0.5em 1em;
+}
+
+body.folder li.child > ul{
+	padding-left:0.5em;
+}
+
+
+body.folder li.folder > div {
+    background-color: #d1b1da;
+    color: #764d82;
+}
+body.folder li.folder > div a.lnkResource {
+    color: #764d82;
+}
+body.folder li.child li.child {
+    background-color: #ffffff;
+}
+body.folder li.child li.child li.child{
+    background-color: #e9e9e9;
+}
+body.folder li.child li.child li.child li.child{
+    background-color: #ffffff;
+}
+body.folder li.child li.child li.child li.child li.child{
+    background-color: #e9e9e9;
+}
+body.folder li.child li.child li.child li.child li.child li.child{
+    background-color: #ffffff;
+}
+body.folder li.child li.child li.child li.child li.child li.child li.child{
+    background-color: #e9e9e9;
+}
+body.folder li.child li.child li.child li.child li.child li.child li.child li.child{
+    background-color: #ffffff;
+}
+
+body.folder a.lnkResource {
+	flex: 1;
+}
+
+/*	Types	*/
+body.folder ul li > div a.lnkResource::before{
+	font-family: "fontello";
+	content: "\e813";
+	margin-right: 5px;
+	font-style:normal;
+}
+body.folder ul li > div a.lnkResource:hover::before {
+	color: #ec6607;
+}
+
+body.folder li.parent > div a.lnkResource::before{
+	content: "\e82a";
+}
+body.folder li.archive > div a.lnkResource::before{
+	content: "\f1c6";
+}
+body.folder li.audio > div a.lnkResource::before{
+	content: "\f1c7";
+}
+body.folder li.pdf > div a.lnkResource::before{
+	content: "\f1c1";
+}
+body.folder li.file > div a.lnkResource::before{
+	content: "\e82d";
+}
+body.folder li.image > div a.lnkResource::before{
+	content: "\f1c5";
+}
+body.folder li.folder > div a.lnkResource::before{
+	content: "\f114";
+}
+body.folder li.video > div a.lnkResource::before{
+	content: "\f1c8";
+}
+
+/*=== END FOLDER ========================================================= */
+
+/*=== START QRCODE ========================================================= */
+.btnQrcode {
+	height:25px;
+	width:25px;
+	padding:0;
+}
+h1 .btnQrcode {
+	height:auto;
+	width:auto;
+    margin-right: 5px;
+}
+.btnQrcode::before {
+	content: "\e82b";
+	font-family: "fontello";
+	font-size: 110%;
+}
+h1 .btnQrcode::before {
+	font-size: 1.5em;
+}
+.btnQrcode > span {
+	display: none;
+}
+.qrcodeFrame {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
+.qrcodeOver{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+.qrcodeFigure{
+	background-color: rgba(255, 255, 255, 1);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -440px;
+	margin-top: -440px;
+	padding: 40px 40px 20px 40px;
+	border-radius:5px;
+	box-shadow: 0 0 6px 0px gray;
+}
+.qrcodeHolder img{
+	margin: 0 auto;
+}
+.btnClose{
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	font-size:130%;
+	height:30px;
+	width:30px;
+	padding:0;
+}
+.qrcodeTitle{
+	text-align: center;	
+	font-style: italic;
+	color:#764d82;
+	min-height: 15px;
+	margin-top: 5px;
+}
+/*=== END QRCODE ========================================================= */
+
+/*=== START Cookie warn bar ======================================== */
+.cookieWarnBar{
+	position:relative;
+	border-bottom:2px solid #e0dcd8;
+	background-color: #FFF;
+	padding: 6px 10px;
+	margin: 0px;
+	opacity:1;
+	min-width: 850px;
+	z-index: 1000;
+}
+.cookieWarnBar.acknowledged{
+	opacity:0;
+	height:0px !important;
+	padding: 0px 10px;
+	margin: 0px -7px 0px -7px;
+	border-bottom:0px;
+	transition-property : opacity,display,padding,margin;
+	transition-duration : 0.5s;
+}
+.cookieWarnBtn{
+	display: block;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	text-decoration: none;
+}
+.cookieWarnBar.acknowledged .cookieWarnBtn{
+	display: none;
+}
+.cookieWarnBtn:hover{
+	.opacity:0.8;
+}
+.cookieWarnMsg{
+	display: block;
+	margin-right: 20px;
+}
+/*=== END Cookie warn bar ======================================== */
+
+/*=== START RESPONSIVE =================================================== */
+@media (max-width:600px){
+	#header h1 {
+		font-size:1.2em;
+		margin-left:15px;
+	}
+	h1 .btnQrcode::before {
+		font-size:1.2em;
+	}
+	#header .description {
+		margin-left:15px;
+	}
+	.flex-1-1,
+	.flex-2-1{
+		display: block;
+	}
+	
+}
+@media (max-width:550px){
+	#header h1 {
+		margin-left: 0.5em;
+		font-size:1.1em;
+		margin-left:10px;
+	}
+	h1 .btnQrcode::before {
+		font-size:1.1em;
+	}
+	#header .description {
+		margin-left:10px;
+		font-size:80%;
+	}
+}
+@media (max-width:500px){
+	#header h1 {
+		font-size:1.05em;
+	}
+	h1 .btnQrcode::before {
+		font-size:1.05em;
+	}
+	#header .description {
+		font-size:60%;
+	}
+}
+@media (max-width:450px){
+	#header h1 {
+		font-size:0.9em;
+	}
+	h1 .btnQrcode::before {
+		font-size:0.9em;
+	}
+}
+@media (max-width:400px){
+	#header h1 {
+		font-size:0.8em;
+	}
+	h1 .btnQrcode::before {
+		font-size:0.8em;
+	}
+}
+
+/*--- START QRCODE --------------------------------------------------------------*/
+@media (max-width:900px), (max-height:900px){
+	.qrcodeHolder img{
+		width: 700px;
+		height: 700px;
+	}	
+	.qrcodeFigure{
+		margin-left: -390px;
+		margin-top: -390px;
+	}
+}
+@media (max-width:800px), (max-height:800px){
+	.qrcodeHolder img{
+		width: 600px;
+		height: 600px;
+	}	
+	.qrcodeFigure{
+		margin-left: -340px;
+		margin-top: -340px;
+	}
+}
+@media (max-width:700px), (max-height:700px){
+	.qrcodeHolder img{
+		width: 500px;
+		height: 500px;
+	}	
+	.qrcodeFigure{
+		margin-left: -290px;
+		margin-top: -290px;
+	}
+}
+@media (max-width:600px), (max-height:600px){
+	.qrcodeHolder img{
+		width: 400px;
+		height: 400px;
+	}	
+	.qrcodeFigure{
+		margin-left: -240px;
+		margin-top: -240px;
+	}
+}
+@media (max-width:500px), (max-height:500px){
+	.qrcodeHolder img{
+		width: 300px;
+		height: 300px;
+	}	
+	.qrcodeFigure{
+		margin-left: -190px;
+		margin-top: -190px;
+	}
+}
+@media (max-width:400px), (max-height:400px){
+	.qrcodeHolder img{
+		width: 200px;
+		height: 200px;
+	}	
+	.qrcodeFigure{
+		margin-left: -140px;
+		margin-top: -140px;
+	}
+}
+@media (max-width:300px), (max-height:300px){
+	.qrcodeHolder img{
+		width: 100px;
+		height: 100px;
+	}	
+	.qrcodeFigure{
+		margin-left: -90px;
+		margin-top: -90px;
+	}
+}
+/*--- END QRCODE --------------------------------------------------------------*/
+
+/*=== END RESPONSIVE ========================================================= */
